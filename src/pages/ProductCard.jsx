@@ -31,12 +31,12 @@ export default function ProductCard() {
 
   return (
     <div className="relative pt-20 pb-10 bg-black/85 text-white">
-      <div className="flex gap-20 justify-center items-center w-[100%] px-16">
-        <div className="w-1/3">
+      <div className="flex md:flex-row flex-col gap-20 justify-center items-center w-[100%] px-16">
+        <div className="md:w-1/3 w-[100%]">
           <ImageSlider images={product.image} />
         </div>
         <div className="h-[680px] overflow-y-auto flex flex-col gap-14 hide-scrollbar pt-4.5 pb-16">
-          <h1 className="text-4xl">{product.description}</h1>
+          <h1 className="text-xl md:text-3xl">{product.description}</h1>
           <div>
             <h1 className="text-5xl">₹{product.price}</h1>
             <p>(Incl. all Taxes)</p>

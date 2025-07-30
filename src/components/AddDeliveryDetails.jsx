@@ -1,4 +1,20 @@
-export default function AddDeliveryDetails({ setPhoneNo , setAddress , showDelivary , setShowDelivary}) {
+export default function AddDeliveryDetails({ 
+  setPhoneNo ,
+   setAddress , 
+   showDelivary , 
+   setShowDelivary,
+    phoneNo,
+    address,
+  }) {
+
+    const submitHandler = ()=>{
+      if(phoneNo.length === 10 && address){
+        setShowDelivary(false)
+      }else{
+        alert('Add correct phone no. & Delivary details')
+      }
+    }
+
  return (
     <div className={`min-h-screen min-w-screen flex flex-col justify-center items-center fixed z-5 top-16 bg-black/70 ${showDelivary ? '' : 'hidden'}`}>
       <div
@@ -32,12 +48,11 @@ export default function AddDeliveryDetails({ setPhoneNo , setAddress , showDeliv
         <button
           type="button"
           className="bg-white/10 px-8 py-2 rounded-2xl cursor-pointer"
-          onClick={()=>{
-            setShowDelivary(false)
-          }}
+          onClick={submitHandler}
         >
           Submit
         </button>
+        <p></p>
       </div>
     </div>
   );

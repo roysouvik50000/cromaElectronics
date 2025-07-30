@@ -34,7 +34,7 @@ export default function ProductCartCard({ product }) {
 
   return (
     <>
-      <div className=" h-36 w-2/3 border-2 border-black rounded-2xl px-2.5 py-1 my-5">
+      <div className="min-h-36 md:w-2/3 border-2 border-black rounded-2xl px-2.5 py-1 my-5">
         <div className="flex gap-5 justify-between">
           <div>
             <img

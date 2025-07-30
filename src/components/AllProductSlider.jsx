@@ -53,7 +53,7 @@ const AllProductSlider = ({ categoryToView }) => {
 
   return (
     <>
-      <div className="flex justify-center items-center px-5">
+      <div className="flex justify-center items-center md:px-5">
         <div className="w-[100%] relative">
           <Slider {...settings} className="w-[100%]">
             {allProduct && allProduct.map((product, index) => {
@@ -61,7 +61,7 @@ const AllProductSlider = ({ categoryToView }) => {
                 return (
                   <div
                     key={index}
-                    className="p-12 "
+                    className="md:px-12 px-3 "
                     onClick={(e) => `
                       ${viewProductHandler(product)}
                       ${e.preventDefault()}

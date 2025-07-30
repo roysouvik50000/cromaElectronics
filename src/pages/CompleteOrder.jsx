@@ -54,6 +54,8 @@ export default function CompleteOrder() {
         setAddress={setAddress}
         showDelivary={showDelivary}
         setShowDelivary={setShowDelivary}
+        phoneNo={phoneNo}
+        address={address}
       />
       <div className="bg-white h-min-screen px-28 py-16 text-black">
         <h1 className="text-5xl font-black my-8">Complete your Order :~</h1>
@@ -95,8 +97,23 @@ export default function CompleteOrder() {
             </div>
           </div>
           <div className="flex gap-4">
-            <input type="checkbox" name="paymentDetails" id="paymentDetails" />
+            <input type="checkbox" 
+            className="bg-emerald-500 text-emerald-500"
+            name="paymentDetails" 
+            id="paymentDetails" 
+            defaultChecked
+            />
             <p>Cash On Deilevary</p>
+          </div>
+          <div className="flex gap-4">
+            <input type="checkbox" 
+            className="bg-emerald-500 text-emerald-500"
+            name="paymentDetails" 
+            id="paymentDetails" 
+            readOnly
+           disabled
+           />
+            <p>Pay Online</p>
           </div>
         </div>
       </div>

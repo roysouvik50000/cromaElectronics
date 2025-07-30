@@ -14,7 +14,7 @@ export default function Navbar() {
   const [showProfile, setShowProfile] = useState(false);
   return (
     <>
-      <div className="bg-black/90 px-20 flex flex-row items-center justify-between text-white py-2.5 fixed z-50 w-[100%]">
+      <div className="bg-black/90 md:px-20 flex flex-row items-center justify-between text-white py-2.5 fixed z-50 w-[100%]">
         <Link to={"/"}>
           <h1 className="text-5xl relative font-mono">
             croma
@@ -33,7 +33,7 @@ export default function Navbar() {
               name="search"
               id="search"
               placeholder="What are you looking for ?"
-              className="bg-white font-medium text-black px-1.5 py-1 rounded-l-[8px] placeholder:text-gray-500 h-8.5 w-[420px]"
+              className="bg-white font-medium text-black px-1.5 py-1 rounded-l-[8px] placeholder:text-gray-500 h-8.5 md:w-[420px]"
               onChange={(e) => {
                 setSearchText(e.target.value);
               }}

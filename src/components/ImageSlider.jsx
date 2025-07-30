@@ -31,7 +31,7 @@ const ImageSlider = ({ images }) => {
   };
 
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex justify-center ">
       <div className="w-[100%] relative">
         <Slider {...settings}>
           {images.map((url, index) => (

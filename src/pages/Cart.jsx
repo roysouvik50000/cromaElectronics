@@ -17,12 +17,18 @@ export default function Cart() {
     setTotalPrice (totalSum);
   },[cartProducts])
 
-  
+  const chackOutHandler = ()=>{
+    if(totalPrice>0){
+      navigate('/completeOrder')
+    }else{
+      alert('please add product to your cart')
+    }
+  }
 
   return (
     <div className="bg-white min-h-screen px-28 py-16 text-black">
       <h1 className="text-5xl font-black my-8">Your Cart :~</h1>
-      {user ? (<div className=" flex justify-between items-center">
+      {user ? (<div className=" flex flex-col md:flex-row justify-between items-center">
         <div className="w-3/4">
           {cartProducts.map((product, index) => {
             if(cartProducts.indexOf(product) === index ){
@@ -41,9 +47,7 @@ export default function Cart() {
           </div>
           <button type="button" 
           className="bg-emerald-500 rounded-2xl px-28 py-2.5 font-bold mx-auto w-full mt-2.5 cursor-pointer"
-          onClick={()=>{
-            navigate('/completeOrder')
-          }}
+          onClick={chackOutHandler}
           >Checkout</button>
         </div>
       </div>):(<div>

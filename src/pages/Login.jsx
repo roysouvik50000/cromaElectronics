@@ -13,16 +13,22 @@ export default function Login() {
   const logInHandler = () => {
     if (email.includes("@") && password.length > 5) {
       dispatch(logInUser({ email, password }));
-      navigate('/')
     } else {
       setAlart("Entered wrong inputs!!");
     }
   };
 
   useEffect(()=>{
-    // console.log(user);
+    if (user.user){
+
+      navigate('/')
+    }
+  },[user.user])
+
+  useEffect(()=>{
+    console.log(user.error);
     setAlart(user.error);
-  },[user])
+  },[user.error])
   return (
     <div className="min-h-screen min-w-screen flex flex-col justify-center items-center fixed z-5 top-16 bg-black/80">
       <form
@@ -69,7 +75,22 @@ export default function Login() {
         >
           Log In
         </button>
-        <p className="text-red-600 text-center w-72 h-20">{alart}</p>
+        <div className="flex justify-between w-[100%]">
+          <p
+          className="text-sm text-red-500"
+          >
+            Don't have a account?
+          </p>
+          <p
+          onClick={()=>{
+            navigate('/signUp')
+          }}
+          className="text-sm text-blue-600 underline"
+          >
+            Sign Up
+          </p>
+        </div>
+        <p className="text-red-600 text-center w-[100%] h-12">{alart}</p>
       </form>
     </div>
   );
