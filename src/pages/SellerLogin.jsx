@@ -2,23 +2,23 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 
 export default function SellerLogin() {
-  const navigate = useNavigate()
-  const [email , setEmail] = useState('');
-  const [password , setPassword] = useState('');
-  const [alart , setAlart ] = useState('');
-  const sellerLoginHandler = ()=>{
-    if(myEmail === email && myPassword === password){
-      navigate('/sellerDashboard')
-      setAlart('')
-    }else{
-      setAlart('invalid Password or email');
-    }
-  }
-  const myEmail = 'dev@web.ai';
-  const myPassword = 'a1b2';
+  // const navigate = useNavigate()
+  // const [email , setEmail] = useState('');
+  // const [password , setPassword] = useState('');
+  // const [alart , setAlart ] = useState('');
+  // const sellerLoginHandler = ()=>{
+  //   if(myEmail === email && myPassword === password){
+  //     navigate('/sellerDashboard')
+  //     setAlart('')
+  //   }else{
+  //     setAlart('invalid Password or email');
+  //   }
+  // }
+  // const myEmail = 'dev@web.ai';
+  // const myPassword = 'a1b2';
   return (
     <div className="min-h-screen min-w-screen flex flex-col justify-center items-center fixed z-5 top-16 bg-black/70">
-      <form className="bg-black px-6 py-3.5 rounded-2xl flex flex-col items-center justify-around text-white gap-7 text-[18px]">
+      {/* <form className="bg-black px-6 py-3.5 rounded-2xl flex flex-col items-center justify-around text-white gap-7 text-[18px]">
         <h1 className="text-2xl font-black">Seller Login</h1>
         <div>
           <label htmlFor="email">Email - </label>
@@ -56,7 +56,7 @@ export default function SellerLogin() {
           Log In
         </button>
         <p className="text-red-600 text-center">{alart}</p>
-      </form>
+      </form> */}
     </div>
   );
 }

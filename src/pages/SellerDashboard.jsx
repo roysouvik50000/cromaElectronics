@@ -71,12 +71,12 @@ export default function SellerDashboard() {
         <h1 className="text-3xl font-black my-8">All Placed Orders :~</h1>
         <button
           type="button"
-          className="px-1.5 py-0.5 rounded-2xl float-right bg-blue-500 cursor-pointer"
+          className="px-2.5 py-1.5 rounded-2xl float-right bg-blue-500 cursor-pointer"
           onClick={() => {
             navigate("/");
           }}
         >
-          Seller Log Out
+          Go To Home Page
         </button>
         <div className=" flex justify-between items-center">
           <div className="w-3/4">

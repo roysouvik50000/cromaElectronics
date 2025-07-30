@@ -6,7 +6,7 @@ export default function ProfileDropDown({ showProfile, setShowProfile }) {
   const user = useSelector((state) => state.user.user);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
+  const sellerId = 'hZwG4jL9rbTkYLKXZKkoKTLnmVR2';
   return (
     <>
       <div
@@ -44,15 +44,17 @@ export default function ProfileDropDown({ showProfile, setShowProfile }) {
             >
               Log Out
             </h1>
-            <h1
+            {(sellerId === user.uid)?(<h1
               className="border-b-2 border-b-black cursor-pointer"
               onClick={() => {
-                navigate("/sellerLogin");
+                navigate("/sellerDashboard");
                 setShowProfile(false);
               }}
             >
               Seller Dashboard
-            </h1>
+            </h1>):(
+              <h1></h1>
+            )}
           </div>
         ) : (
           <div className="flex flex-col gap-5.5">
