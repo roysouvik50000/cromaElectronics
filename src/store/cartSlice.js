@@ -11,11 +11,12 @@ export const cartSlice = createSlice({
         },
         removeCartProduct:(state , action)=>{
             state.cart = state.cart.filter((product)=>{
-                return product.Id !== action.payload;
+                return product.id !== action.payload;
             })
         },
         decreaseProductQuantity:(state , action )=>{
             const removedProductIndex = state.cart.findIndex(item => item.Id === action.payload.Id)
+            // localStorage.setItem(`cart,${action.payload.uid}`,JSON.stringify(action.payload.cart))
             state.cart = state.cart.filter((product , index , allCart)=>{
                 return index !== removedProductIndex;
             })

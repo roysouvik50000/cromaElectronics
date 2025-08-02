@@ -30,10 +30,13 @@ export default function Cart() {
       <h1 className="text-5xl font-black my-8">Your Cart :~</h1>
       {user ? (<div className=" flex flex-col md:flex-row justify-between items-center">
         <div className="w-3/4">
-          {cartProducts.map((product, index) => {
-            if(cartProducts.indexOf(product) === index ){
+          {cartProducts.map((product, index , arr) => {
+            const arrCart = arr.map(v => JSON.stringify(v))
+            console.log(arrCart.indexOf(JSON.stringify(product)) == index)
+            if(arrCart.indexOf(JSON.stringify(product)) == index){
             return <ProductCartCard key={index} product={product} />
-            }}
+            }
+          }
           )}
         </div>
         <div className="bg-black/10 px-2.5 py-1.5 rounded-2xl w-[400px] h-56">

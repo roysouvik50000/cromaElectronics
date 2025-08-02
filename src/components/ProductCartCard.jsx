@@ -4,6 +4,7 @@ import {
   addToCart,
   decreaseProductQuantity,
   removeCartProduct,
+  saveCartToLocalStorage,
 } from "../store/cartSlice";
 
 export default function ProductCartCard({ product }) {
@@ -14,15 +15,27 @@ export default function ProductCartCard({ product }) {
   const [quantity, setQuantity] = useState(0);
 
   const cart = useSelector((state) => state.cart.cart);
+  const user = useSelector((state) => state.user.user);
 
   useEffect(() => {
     let productQuantity = 0;
     cart.forEach((v) => {
-      if (v === product) {
+      if (JSON.stringify(v) === JSON.stringify(product)) {
         productQuantity++;
       }
     });
     setQuantity(productQuantity);
+  }, [dispatch , cart]);
+
+  useEffect(() => {
+    if (user) {
+      dispatch(
+        saveCartToLocalStorage({
+          uid: user.uid,
+          cart: cart,
+        })
+      );
+    }
   }, [cart]);
 
   const increaseQuantityHandler = (product) => {

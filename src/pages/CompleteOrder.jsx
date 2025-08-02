@@ -9,9 +9,9 @@ import AddDeliveryDetails from "../components/AddDeliveryDetails";
 export default function CompleteOrder() {
   const dispatch = useDispatch();
   const cartProducts = useSelector((state) => state.cart.cart);
-  const [phoneNo , setPhoneNo ] = useState('');
-  const [address , setAddress ] = useState('');
-  const [showDelivary , setShowDelivary ] = useState(true);
+  const [phoneNo, setPhoneNo] = useState("");
+  const [address, setAddress] = useState("");
+  const [showDelivary, setShowDelivary] = useState(true);
 
   const [totalPrice, setTotalPrice] = useState(0);
   const user = useSelector((state) => state.user.user);
@@ -28,16 +28,14 @@ export default function CompleteOrder() {
 
   const completeOrderHandler = () => {
     const order = {
-        uid: user.uid,
-        usersName: user.displayName,
-        phoneNo: phoneNo,
-        address: address,
-        orderdCart: cart,
-        payment: "cash on delivary",
-      };
-    dispatch(
-      addUsersOrders(order)
-    );
+      uid: user.uid,
+      usersName: user.displayName,
+      phoneNo: phoneNo,
+      address: address,
+      orderdCart: cart,
+      payment: "cash on delivary",
+    };
+    dispatch(addUsersOrders(order));
   };
 
   const [showComplited, setShowComplited] = useState(false);
@@ -47,9 +45,8 @@ export default function CompleteOrder() {
       <OrderComplited
         showComplited={showComplited}
         setShowComplited={setShowComplited}
-        
       />
-      <AddDeliveryDetails 
+      <AddDeliveryDetails
         setPhoneNo={setPhoneNo}
         setAddress={setAddress}
         showDelivary={showDelivary}
@@ -61,8 +58,10 @@ export default function CompleteOrder() {
         <h1 className="text-5xl font-black my-8">Complete your Order :~</h1>
         <div className=" flex flex-col">
           <div className="w-[100%] mx-auto">
-            {cartProducts.map((product, index) => {
-              if (cartProducts.indexOf(product) === index) {
+            {cartProducts.map((product, index, arr) => {
+              const arrCart = arr.map((v) => JSON.stringify(v));
+              console.log(arrCart.indexOf(JSON.stringify(product)) == index);
+              if (arrCart.indexOf(JSON.stringify(product)) == index) {
                 return <ProductCartCard key={index} product={product} />;
               }
             })}
@@ -97,22 +96,24 @@ export default function CompleteOrder() {
             </div>
           </div>
           <div className="flex gap-4">
-            <input type="checkbox" 
-            className="bg-emerald-500 text-emerald-500"
-            name="paymentDetails" 
-            id="paymentDetails" 
-            defaultChecked
+            <input
+              type="checkbox"
+              className="bg-emerald-500 text-emerald-500"
+              name="paymentDetails"
+              id="paymentDetails"
+              defaultChecked
             />
             <p>Cash On Deilevary</p>
           </div>
           <div className="flex gap-4">
-            <input type="checkbox" 
-            className="bg-emerald-500 text-emerald-500"
-            name="paymentDetails" 
-            id="paymentDetails" 
-            readOnly
-           disabled
-           />
+            <input
+              type="checkbox"
+              className="bg-emerald-500 text-emerald-500"
+              name="paymentDetails"
+              id="paymentDetails"
+              readOnly
+              disabled
+            />
             <p>Pay Online</p>
           </div>
         </div>
