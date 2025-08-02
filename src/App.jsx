@@ -31,6 +31,7 @@ function App() {
   const user = useSelector((state) => state.user.user);
 
   useEffect(() => {
+    // console.log(import.meta.env.VITE_TMP);
     dispatch(observeAuth());
     dispatch(getUsersOrders());
     dispatch(getAllProduct());

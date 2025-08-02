@@ -44,7 +44,7 @@ const ProductCardSmall = ({ product }) => {
           ))}
         </Slider>
         <h1 className="md:text-xl text-[8px] pt-3 md:h-36 h-12 overflow-hidden">{product.description}</h1>
-        <h1 className="md:pt-2.5 text-[8px]">₹{product.price}</h1>
+        <h1 className="md:pt-2.5 md:text-lg text-[8px]">₹{product.price}</h1>
         <p className="md:text-lg text-[8px]">(Incl. all Taxes)</p>
       </div>
     </div>
